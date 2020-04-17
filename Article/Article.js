@@ -112,3 +112,138 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+/*
+let createArticle = function(data){
+
+  let article = document.createElement('div');
+  article.classList.add('article');
+  
+
+  let h2 = document.createElement('h2');
+  h2.textContent = data;
+  h2.appendChild(article)
+
+let dates = document.createElement('p');
+dates.textContent = data;
+dates.classList.add('date');
+dates.appendChild(article);
+
+let para1 = document.createElement('p');
+para1.textContent = data;
+para1.appendChild(article);
+
+let para2 = document.createElement('p');
+para2.textContent = data;
+para2.appendChild(article);
+
+let para3 = document.createElement('p');
+para3.textContent = data;
+para3.appendChild(article);
+
+let button = document.createElement('span');
+button.classList.add('expandButton');
+button.appendChild(article);
+
+button.addEventListener('click', (event) => {
+
+})
+
+return article;
+
+}
+*/
+
+
+
+function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph){
+  const article = document.createElement('div');
+  article.classList.add('article');
+  
+
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+  article.appendChild(h2);
+
+  const dates = document.createElement('p');
+dates.textContent = date;
+dates.classList.add('date');
+article.appendChild(dates);
+
+const para1 = document.createElement('p');
+para1.textContent = firstParagraph;
+article.appendChild(para1);
+
+const para2 = document.createElement('p');
+para2.textContent = secondParagraph;
+article.appendChild(para2);
+
+const para3 = document.createElement('p');
+para3.textContent = thirdParagraph;
+article.appendChild(para3);
+
+
+const button = document.createElement('span');
+button.classList.add('expandButton');
+button.textContent = "THE AMAZING ARTICLE BUTTON , MUCH WOW";
+article.appendChild(button);
+
+button.addEventListener('click', () => {
+  article.classList.toggle('article-open')
+  article.style.transition = "all 0.5s";
+})
+
+  button.addEventListener('mouseenter', event => {
+      event.target.style.color = 'green'; 
+      event.target.style.fontSize = '1rem';
+      event.target.style.transition = "all 0.3s";
+  })
+
+  button.addEventListener('mouseleave', event => {
+      event.target.style.color = 'black'; 
+      event.target.style.fontSize = '.8rem';
+      event.target.style.transition = "all 0.3s";
+  })
+
+
+
+return article;
+}
+
+let articles = document.querySelector('.articles');
+/*
+for(let i = 0; i < data.length; i++){
+let h2 = createArticle(title[i]);
+let date = createArticle(date[i]);
+let para1 = createArticle(firstParagraph[i])
+let para2 = createArticle(secondParagraph[i])
+let para3 = createArticle(thirdParagraph[i])
+articles.appendChild('article')
+}
+
+ data.forEach((item) => {
+  let h2 = createArticle(title[item]);
+  let dates = createArticle(date[item]);
+  let para1 = createArticle(firstParagraph[item]);
+  let para2 = createArticle(secondParagraph[item]);
+  let para3 = createArticle(thirdParagraph[item]);
+  articles.appendChild(article);
+})
+*/
+
+
+data.forEach(data => {
+ articles.appendChild(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
+
+
+articleCreator()
+
+
+
+
+
+
+//data.forEach(data =>{
+ // accordion.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+//})
